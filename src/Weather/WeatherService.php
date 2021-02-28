@@ -4,6 +4,7 @@ declare(strict_types = 1);
 namespace Weather;
 
 use App\App;
+use JsonException;
 
 class WeatherService extends App implements IWeatherService
 {
@@ -36,7 +37,12 @@ class WeatherService extends App implements IWeatherService
         $response = curl_exec($ch);
         curl_close($ch);
 
-        $data = json_decode($response, true);
+        //throw json exception if an error occurs in the json response
+        try {
+            $data = json_decode($response, true, 512, JSON_THROW_ON_ERROR);
+        } catch (JsonException $e) {
+            return $e->getMessage();
+        }
 
         if ($data['cod'] !== 200) {
             //return error message
