@@ -28,7 +28,7 @@ composer install
 
 ## Running the app
 ```
-./bin/weather Berlin
+./bin/weather.php Berlin
 ```
 
 ## Running the tests
