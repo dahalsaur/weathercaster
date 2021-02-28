@@ -21,13 +21,14 @@ cp .env.example .env
 ```
 API_KEY=YOURAPIKEY
 ```
-2. Install composer packages 
+2. Install composer packages
 ```
 composer install
 ```
-3. Run app
+
+## Running the app
 ```
-./bin/weather <city name>
+./bin/weather Berlin
 ```
 
 ## Running the tests
